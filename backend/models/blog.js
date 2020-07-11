@@ -12,6 +12,12 @@ const blogSchema = new mongoose.Schema({
 	},
 	body: {
 		type: String
+	},
+	images: {
+		type: [String]
+	},
+	video: {
+		type: String
 	}
 });
 module.exports = mongoose.model('Blog', blogSchema);

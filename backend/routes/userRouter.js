@@ -5,7 +5,7 @@ const upload = multer();
 const User = require('../models/user');
 const cut = require('../utilities/cut');
 
-router.post('/create', upload.none(), async (req,res) => {
+router.post('/create', upload.none(), async (req,res,next) => {
 	try{
 		let newuser = cut(req.body, ['_id','email','fullname','image','org']);
 		let saved = new User(newuser);
@@ -14,7 +14,7 @@ router.post('/create', upload.none(), async (req,res) => {
 	} catch(err){ next(err); }
 });
 
-router.post('/addupiwebsite', upload.none(), async (req,res) => {
+router.post('/addupiwebsite', upload.none(), async (req,res,next) => {
 	try{
 		let updates = cut(req.body, ['upi','website']);
 		let { _id } = req.body;
@@ -28,7 +28,7 @@ router.post('/addupiwebsite', upload.none(), async (req,res) => {
 	} catch(err){ next(err); }
 });
 
-router.get('/getqr', async (req,res) => {
+router.get('/getqr', async (req,res,next) => {
 	let { _id } = req.headers;
 	let user = await User.findOne({ _id });
 	if(!user.org){
