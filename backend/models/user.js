@@ -15,7 +15,8 @@ const userSchema = new mongoose.Schema({
 		type: String
 	},
 	org: {
-		type: Boolean
+		type: Boolean,
+		default: false
 	},
 	upi: {
 		type: String

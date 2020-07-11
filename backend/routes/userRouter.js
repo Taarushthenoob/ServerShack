@@ -7,7 +7,7 @@ const cut = require('../utilities/cut');
 
 router.post('/create', upload.none(), async (req,res,next) => {
 	try{
-		let newuser = cut(req.body, ['_id','email','fullname','image','org']);
+		let newuser = cut(req.body, ['_id','email','fullname','image']);
 		let saved = new User(newuser);
 		await saved.save();
 		res.status(200).json({ ok:1 });
@@ -18,6 +18,7 @@ router.post('/addupiwebsite', upload.none(), async (req,res,next) => {
 	try{
 		let updates = cut(req.body, ['upi','website']);
 		let { _id } = req.body;
+		updates.org = true;
 		let { n, nModified } = await User.updateOne({ _id }, updates);
 		if(n !== 1 || nModified !== 1){
 			let err = new Error('Failed to update details');
