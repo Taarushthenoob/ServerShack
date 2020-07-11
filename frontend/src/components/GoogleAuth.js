@@ -26,7 +26,8 @@ class GoogleAuth extends React.Component {
       const email = this.auth.currentUser.get().getEmail;
       const fullname = this.auth.currentUser.get().getFamilyName;
       const image = this.auth.currentUser.get().getImageUrl;
-      this.props.signIn(_id, email, fullname, image);
+      this.props.signIn(_id);
+      this.props.sendUserDetails(_id, email, fullname, image);
     } else {
       this.props.signOut();
     }

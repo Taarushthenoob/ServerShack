@@ -16,6 +16,21 @@ export const signOut = () => {
   };
 };
 
-export const sendUserDetails = (_id, email, fullname, image) => {
+export const sendUserDetails = (_id, email, fullname, image) => async (
+  dispatch
+) => {
+  const formData = new FormData();
+  formData.append('_id', _id);
+  formData.append('email', email);
+  formData.append('fullname', fullname);
+  formData.append('image', image);
 
-}
+  const response = await url.post('/user/create', formData);
+
+  console.log(response);
+
+  dispatch({
+    type: SEND_USER_DETAILS,
+    payload: { _id, email, fullname, image },
+  });
+};
