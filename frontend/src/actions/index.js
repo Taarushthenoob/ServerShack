@@ -1,12 +1,11 @@
 import url from '../apis/url';
-import { SIGN_IN, SIGN_OUT, SEND_USER_DETAILS } from './types';
-import history from '../history';
+import { SIGN_IN, SIGN_OUT, SEND_USER_INFO } from './types';
+// import history from '../history';
 
-export const signIn = (_id) => {
-  console.log(_id);
+export const signIn = (_id, email, fullname, image) => {
   return {
     type: SIGN_IN,
-    payload: _id,
+    payload: { _id, email, fullname, image },
   };
 };
 
@@ -16,21 +15,16 @@ export const signOut = () => {
   };
 };
 
-export const sendUserDetails = (_id, email, fullname, image) => async (
-  dispatch
-) => {
+export const sendUserInfo = () => async (dispatch, getState) => {
+  const { _id, email, fullname, image } = getState().auth;
+
   const formData = new FormData();
   formData.append('_id', _id);
   formData.append('email', email);
   formData.append('fullname', fullname);
   formData.append('image', image);
 
-  const response = await url.post('/user/create', formData);
+  await url.post('/user/create', formData);
 
-  console.log(response);
-
-  dispatch({
-    type: SEND_USER_DETAILS,
-    payload: { _id, email, fullname, image },
-  });
+  dispatch({ type: SEND_USER_INFO });
 };

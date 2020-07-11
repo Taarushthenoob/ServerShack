@@ -10,7 +10,7 @@ router.post('/create', upload.none(), async (req,res,next) => {
 		let newuser = cut(req.body, ['_id','email','fullname','image']);
 		let saved = new User(newuser);
 		await saved.save();
-		res.status(200).json({ ok:1 });
+		res.status(200).json({});
 	} catch(err){ next(err); }
 });
 
