@@ -43,7 +43,7 @@ router.get('/getqr', async (req,res) => {
 		next(err);
 		return;
 	}
-	let d = await fetch(`https://upiqr.in/api/qr?name=Rohit%20Mundada&vpa=${user.upi}`);
+	let d = await fetch(`https://upiqr.in/api/qr?name=${user.fullname}&vpa=${user.upi}`);
 	d = await d.text();
 	d = a.split('d="')[1].split('"')[0]
 	res.status(200).json({ ok:1, d });
