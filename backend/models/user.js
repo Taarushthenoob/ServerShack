@@ -14,6 +14,9 @@ const userSchema = new mongoose.Schema({
 	image: {
 		type: String
 	},
+	qualifications: {
+		type: String
+	},
 	org: {
 		type: Boolean,
 		default: false

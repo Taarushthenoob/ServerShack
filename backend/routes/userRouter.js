@@ -29,6 +29,20 @@ router.post('/addupiwebsite', upload.none(), async (req,res,next) => {
 	} catch(err){ next(err); }
 });
 
+router.post('/addqual', upload.none(), async (req,res,next) => {
+	try{
+		let updates = cut(req.body, ['qualifications']);
+		let { _id } = req.body;
+		let { n, nModified } = await User.updateOne({ _id }, updates);
+		if(n !== 1 || nModified !== 1){
+			let err = new Error('Failed to update details');
+			next(err);
+			return;
+		}
+		res.status(200).json({ ok:1 });
+	} catch(err){ next(err); }
+});
+
 router.get('/getqr', async (req,res,next) => {
 	try{
 		let { _id } = req.headers;
