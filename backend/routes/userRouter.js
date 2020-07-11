@@ -29,7 +29,7 @@ router.post('/addupiwebsite', upload.none(), async (req,res) => {
 });
 
 router.get('/getqr', async (req,res) => {
-	let { _id } = req.query;
+	let { _id } = req.headers;
 	let user = await User.findOne({ _id });
 	if(!user.org){
 		let err = new Error('Not an org account');

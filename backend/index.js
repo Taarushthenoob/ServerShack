@@ -2,6 +2,8 @@ const express = require('express');
 const log = require('morgan');
 const app = express();
 
+const userRouter = require('routes/userRouter');
+
 // enables environment variables
 require('dotenv').config();
 
@@ -28,6 +30,8 @@ app.use((req,res,next) => {
 	res.set('Content-Type', 'application/json');
 	next();
 });
+
+app.use('/user', userRouter);
 
 // For undefined routes
 app.use((req, res, next) => {
