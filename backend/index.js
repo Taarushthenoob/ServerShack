@@ -41,7 +41,7 @@ app.use((error, req, res, next) => {
 	console.log(error);
 });
 
-
-app.listen(process.env.PORT, () => {
-	console.log(`App running on port: ${process.env.PORT}`);
+let port = parseInt(process.env.PORT);
+app.listen(port, () => {
+	console.log(`App running on port: ${port}`);
 });
