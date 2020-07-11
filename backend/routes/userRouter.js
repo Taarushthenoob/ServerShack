@@ -8,7 +8,6 @@ const cut = require('../utilities/cut');
 router.post('/create', upload.none(), async (req,res) => {
 	try{
 		let newuser = cut(req.body, ['_id','email','fullname','image','org','upi','website']);
-		if(!newuser.org) newuser.upi = "";
 		let saved = new User(newuser);
 		await saved.save();
 		res.status(200).json({ ok:1 });
