@@ -2,13 +2,13 @@ const express = require('express');
 const log = require('morgan');
 const app = express();
 
-const userRouter = require('routes/userRouter');
+const userRouter = require('./routes/userRouter');
 
 // enables environment variables
 require('dotenv').config();
 
 // DB connection
-require('db/connect')();
+require('./db/connect')();
 
 // logger
 app.use(log('dev'));
