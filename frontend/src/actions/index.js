@@ -1,11 +1,12 @@
-// import url from '../apis/url';
-import { SIGN_IN, SIGN_OUT } from './types';
-// import history from '../history';
+import url from '../apis/url';
+import { SIGN_IN, SIGN_OUT, SEND_USER_DETAILS } from './types';
+import history from '../history';
 
-export const signIn = (userId) => {
+export const signIn = (_id) => {
+  console.log(_id);
   return {
     type: SIGN_IN,
-    payload: userId,
+    payload: _id,
   };
 };
 
@@ -14,3 +15,7 @@ export const signOut = () => {
     type: SIGN_OUT,
   };
 };
+
+export const sendUserDetails = (_id, email, fullname, image) => {
+
+}

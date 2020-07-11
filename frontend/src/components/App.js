@@ -7,7 +7,7 @@ import  './Home.css';
 
 const App = () => {
   return (
-    <div className="ui container backgimg">
+    <div className="ui backgimg">
       <Router history={history}>
         <div >
           <div  className=" grad"><Header /></div>
