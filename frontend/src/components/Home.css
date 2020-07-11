@@ -1,0 +1,14 @@
+.grad {
+    background: rgb(39,56,204);
+background: linear-gradient(120deg, rgba(39,56,204,0.7) 15%, rgba(84,9,121,0.7) 32%, rgba(124,32,129,0.7) 43%, rgba(135,47,121,0.7) 52%, rgba(142,59,107,0.7) 58%, rgba(255,0,61,0.7) 95%);
+}
+.tc {
+    text-align: center;
+}
+.f1 {
+    font-size: 2rem;
+}
+.f2 {
+    font-size: 4rem;
+
+}
