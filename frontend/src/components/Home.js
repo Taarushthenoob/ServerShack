@@ -16,7 +16,7 @@ const Home = () => {
         ></img>
         </div>  */}
       <div className= "pad">
-        <Link to="/" className="f2">
+        <Link to="/videoandimages" className="f2">
           For Your Jam
         </Link>
         <p className="f1">
@@ -27,7 +27,7 @@ const Home = () => {
         </p>
       </div>
       <div className= "pad">
-        <Link to="/" className="f2">
+        <Link to="/blogs" className="f2">
           Your own personalized feed
         </Link>
         <p className="f1">
@@ -40,7 +40,7 @@ const Home = () => {
         </p>
       </div>
       <div className= "pad">
-        <Link to="/" className="f2">
+        <Link to="/help" className="f2">
           Want Help Section
         </Link>
         <p className="f1">
