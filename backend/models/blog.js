@@ -13,8 +13,8 @@ const blogSchema = new mongoose.Schema({
 	body: {
 		type: String
 	},
-	images: {
-		type: [String]
+	image: {
+		type: String
 	},
 	video: {
 		type: String
