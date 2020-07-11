@@ -28,4 +28,25 @@ router.post('/addupiwebsite', upload.none(), async (req,res) => {
 	} catch(err){ next(err); }
 });
 
+router.get('/getqr', async (req,res) => {
+	let { _id } = req.query;
+	let user = await User.findOne({ _id });
+	if(!user.org){
+		let err = new Error('Not an org account');
+		err.status = 403;
+		next(err);
+		return;
+	}
+	if(!user.upi){
+		let err = new Error('Missing UPI id in DB');
+		err.status = 404;
+		next(err);
+		return;
+	}
+	let d = await fetch(`https://upiqr.in/api/qr?name=Rohit%20Mundada&vpa=${user.upi}`);
+	d = await d.text();
+	d = a.split('d="')[1].split('"')[0]
+	res.status(200).json({ ok:1, d });
+});
+
 module.exports = router;
