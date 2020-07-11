@@ -6,10 +6,13 @@ const Header = () => {
   return (
     <div className="ui secondary pointing menu">
       <Link to="/" className="item">
-        Healtify
+        <h3>Healthify</h3>
       </Link>
       <div className="right menu">
         <Link to="/" className="item">
+          Home
+        </Link>
+        <Link to="/videoandimages" className="item">
           Find Your Jam
         </Link>
         <Link to="/blogs" className="item">

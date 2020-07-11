@@ -1,14 +1,30 @@
 .grad {
-    background: rgb(39,56,204);
-background: linear-gradient(120deg, rgba(39,56,204,0.7) 15%, rgba(84,9,121,0.7) 32%, rgba(124,32,129,0.7) 43%, rgba(135,47,121,0.7) 52%, rgba(142,59,107,0.7) 58%, rgba(255,0,61,0.7) 95%);
+    background: rgb(188,39,204);
+background: linear-gradient(120deg, rgba(188,39,204,0.7) 17%, rgba(121,9,73,0.7) 28%, rgba(129,32,72,0.7) 37%, rgba(135,47,68,0.7) 48%, rgba(142,59,69,0.7) 54%, rgba(255,0,27,0.7) 97%);
 }
 .tc {
     text-align: center;
 }
 .f1 {
     font-size: 2rem;
+    padding: 1rem;
 }
 .f2 {
     font-size: 4rem;
+    padding: 1rem;
 
+}
+.backgimg {
+    background-image: url("../assets/images/work.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.pad {
+    padding: 4rem;
+}
+.nocol {
+    min-height: 40%;
+    min-width:  max-content;
+    
 }
