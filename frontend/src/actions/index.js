@@ -1,6 +1,13 @@
 import url from '../apis/url';
-import { SIGN_IN, SIGN_OUT, SEND_USER_INFO } from './types';
-// import history from '../history';
+import {
+  SIGN_IN,
+  SIGN_OUT,
+  SEND_USER_INFO,
+  SEND_ORG_INFO,
+  SEND_QUAL_INFO,
+  GET_ALL_BLOGS,
+} from './types';
+import history from '../history';
 
 export const signIn = (_id, email, fullname, image) => {
   return {
@@ -39,9 +46,10 @@ export const nonProfitOrg = (formValues) => async (dispatch, getState) => {
   formData.append('fullname', fullname);
   formData.append('_id', _id);
 
-  const response = await url.post('/user/addupiwebsite', formData);
+  await url.post('/user/addupiwebsite', formData);
 
-  console.log(response);
+  dispatch({ type: SEND_ORG_INFO });
+  history.push('/');
 };
 
 export const sendQualDetails = (formValues) => async (dispatch, getState) => {
@@ -53,11 +61,13 @@ export const sendQualDetails = (formValues) => async (dispatch, getState) => {
   formData.append('govt_id', label2);
   formData.append('_id', _id);
 
-  const response = await url.post('/user/updateprofile', formData);
+  await url.post('/user/updateprofile', formData);
 
-  console.log(response);
-}
+  dispatch({ type: SEND_QUAL_INFO });
+};
 
-// export const sendBlogInfo = (formValues) => async (dispatch, getState) => {
-//   const { }
-// }
+export const getAllBlogs = () => async (dispatch) => {
+  const response = await url.get('/blog/blogsbydate');
+
+  dispatch({ type: GET_ALL_BLOGS, payload: response.data });
+};
