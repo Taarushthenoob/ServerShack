@@ -1,6 +1,5 @@
 import url from '../apis/url';
 import { SIGN_IN, SIGN_OUT, SEND_USER_INFO } from './types';
-import { formValues } from 'redux-form';
 // import history from '../history';
 
 export const signIn = (_id, email, fullname, image) => {

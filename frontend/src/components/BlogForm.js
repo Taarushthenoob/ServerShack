@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Field, reduxForm, formValueSelector } from 'redux-form';
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
 
 const BlogForm = (props) => {
   console.log(props);
