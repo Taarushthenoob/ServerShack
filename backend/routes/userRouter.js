@@ -59,6 +59,14 @@ router.get('/allorgs', async (req,res,next) => {
 });
 
 
+router.post('/showuser', upload.none(), async (req,res,next) => {
+	try{
+		let { _id } = req.body;
+		let user = await User.findOne({ _id });
+		res.status(200).json({ ok:1, user });
+	} catch(err){ next(err); }
+});
+
 // router.get('/getqr', async (req,res,next) => {
 // 	try{
 // 		let { _id } = req.headers;
