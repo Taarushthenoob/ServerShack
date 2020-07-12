@@ -70,8 +70,6 @@ export const sendQualDetails = (formValues) => async (dispatch, getState) => {
 export const getAllBlogs = () => async (dispatch) => {
   const response = await url.get('/blog/blogsbydate');
 
-  console.log(response.data);
-
   dispatch({ type: GET_ALL_BLOGS, payload: response.data.blogs });
 };
 

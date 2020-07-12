@@ -12,7 +12,7 @@ class NewBlog extends React.Component {
   renderBlogForm() {
     if (this.props.isSignedIn) {
       return (
-        <div style={{ marginTop: '2rem' }}>
+        <div style={{ marginTop: '2rem', marginBottom: '2rem' }}>
           <h2 className="header">Add a New Blog</h2>
           <BlogForm onSubmit={this.onSubmit} />
         </div>

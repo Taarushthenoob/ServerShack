@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -8,13 +8,13 @@ import './Blogs.css';
 import CreateBut from './CreateBut';
 import FilterBut from './FilterBut';
 
-const Blogs = (props) => {
-  useEffect(() => {
-    props.getAllBlogs();
-  }, []);
+class Blogs extends React.Component {
+  componentDidMount() {
+    this.props.getAllBlogs();
+  }
 
-  const renderButtons = () => {
-    if (props.isSignedIn) {
+  renderButtons = () => {
+    if (this.props.isSignedIn) {
       return (
         <Link to="/blog/new">
           <CreateBut />
@@ -23,32 +23,30 @@ const Blogs = (props) => {
     }
   };
 
-  const renderBlogs = () => {
-    return props.blogs.map((blog) => {
+  renderBlogs = () => {
+    return this.props.blogs.map((blog, index) => {
       if (!blog) {
         return null;
       }
 
-      if (!blog.userId) {
-        return null;
-      }
+      const src = `http://localhost:4000/${blog.media}`;
 
       return (
         <div className="ui attached message" key={blog._id}>
           <div className="content">
             <div className="header">
               <AuthorInfo
-                avatar={blog.userId.image}
-                author={blog.userId.fullname}
-                time={new Date(blog.date)}
+                avatar={blog.userid.image}
+                author={blog.userid.fullname}
+                time={new Date(new Date(blog.date)).toUTCString()}
                 label={blog.label}
-                qualification={blog.userId.qualifications}
+                qualification={blog.userid.qualifications}
               />
             </div>
           </div>
 
           <div className="content">
-            <img src={blog.media} alt={blog.title} className="ui image" />
+            <img src={src} alt={blog.title} className="ui image" />
             <video width="0" height="0"></video>
             <h3>{blog.title}</h3>
             <p>{blog.body}</p>
@@ -57,14 +55,16 @@ const Blogs = (props) => {
       );
     });
   };
-  return (
-    <div style={{ marginTop: '2rem', marginBottom: '2rem' }}>
-      {renderBlogs()}
-      {renderButtons()}
-      <FilterBut />
-    </div>
-  );
-};
+  render() {
+    return (
+      <div style={{ marginTop: '2rem', marginBottom: '2rem' }}>
+        {this.renderBlogs()}
+        {this.renderButtons()}
+        <FilterBut />
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = (state) => {
   return {
