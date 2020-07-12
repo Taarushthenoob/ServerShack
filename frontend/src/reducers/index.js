@@ -6,5 +6,5 @@ import blogReducer from './blogReducer';
 export default combineReducers({
   auth: authReducer,
   form: formReducer,
-  blog: blogReducer
+  blogs: blogReducer
 });
