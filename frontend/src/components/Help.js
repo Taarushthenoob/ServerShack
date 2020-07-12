@@ -42,9 +42,6 @@ class Help extends React.Component {
       <div style={{ marginTop: '2rem' }}>
         <h1>Provide Help</h1>
         <div className="ui items">{this.renderHelpers()}</div>
-        <div className="cont">
-          <h1>Need Help</h1>
-        </div>
       </div>
     );
   }
