@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import { getAllBlogs } from '../actions';
 import AuthorInfo from './AuthorInfo';
 import Logo from '../assets/images/work.jpg';
 import './Blogs.css';
@@ -9,6 +10,9 @@ import CreateBut from './CreateBut';
 import FilterBut from './FilterBut';
 
 const Blogs = (props) => {
+  useEffect(() => {
+    props.getAllBlogs();
+  });
   const renderButtons = () => {
     if (props.isSignedIn) {
       return (
@@ -71,4 +75,4 @@ const mapStateToProps = (state) => {
   return { isSignedIn: state.auth.isSignedIn };
 };
 
-export default connect(mapStateToProps)(Blogs);
+export default connect(mapStateToProps, { getAllBlogs })(Blogs);
