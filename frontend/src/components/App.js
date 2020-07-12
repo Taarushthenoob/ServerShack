@@ -4,7 +4,7 @@ import { Router, Switch, Route } from 'react-router-dom';
 import history from '../history';
 import Header from './Header';
 import Home from './Home';
-import VideoAndImages from './VideoAndImages';
+import Blogs from './Blogs';
 import NonProfitOrg from './NonProfitOrg';
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={Home} />
             <div className="ui container">
-              <Route exact path="/videoandimages" component={VideoAndImages} />
+              <Route exact path="/blogs" component={Blogs} />
               <Route exact path="/nonprofitorg/new" component={NonProfitOrg} />
             </div>
           </Switch>

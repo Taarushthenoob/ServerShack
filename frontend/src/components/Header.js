@@ -25,11 +25,8 @@ const Header = (props) => {
         <Link to="/" className="item">
           Home
         </Link>
-        <Link to="/videoandimages" className="item">
-          Find Your Jam
-        </Link>
         <Link to="/blogs" className="item">
-          Blogs
+          Find Your Jam
         </Link>
         <Link to="/help" className="item">
           Want Help

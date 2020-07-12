@@ -28,3 +28,9 @@ export const sendUserInfo = () => async (dispatch, getState) => {
 
   dispatch({ type: SEND_USER_INFO });
 };
+
+export const nonProfitOrg = (formValues) => async (dispatch, getState) => {
+  const { fullname } = getState().auth;
+
+  const response = await url.post('/user/addupiwebsite');
+};

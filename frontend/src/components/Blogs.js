@@ -2,7 +2,7 @@ import React from 'react';
 
 import AuthorInfo from './AuthorInfo';
 import Logo from '../assets/images/work.jpg';
-import './VideoAndImages.css';
+import './Blogs.css';
 
 const VideoAndImages = () => {
   return (
