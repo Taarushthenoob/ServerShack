@@ -3,6 +3,7 @@ const log = require('morgan');
 const app = express();
 
 const userRouter = require('./routes/userRouter');
+const blogRouter = require('./routes/blogRouter');
 
 // enables environment variables
 require('dotenv').config();
@@ -34,6 +35,7 @@ app.use((req,res,next) => {
 });
 
 app.use('/user', userRouter);
+app.use('/blog', blogRouter);
 
 // For undefined routes
 app.use((req, res, next) => {

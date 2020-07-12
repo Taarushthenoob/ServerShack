@@ -9,9 +9,10 @@ const Header = (props) => {
   const renderNonProfitOrg = () => {
     if (props.isSignedIn) {
       return (
-        
         <Link to="/nonprofitorg/new" className="item">
-          <button className="ui button green">Non-Profit Org? Update Profile!</button>
+          <button className="ui button green">
+            Non-Profit Org? Update Profile!
+          </button>
         </Link>
       );
     }
@@ -20,9 +21,10 @@ const Header = (props) => {
   const renderCompleteProf = () => {
     if (props.isSignedIn) {
       return (
-        
         <Link to="/QualForm" className="item">
-          <button className="medium ui purple button">Complete Your Profile!</button>
+          <button className="medium ui purple button">
+            Complete Your Profile!
+          </button>
         </Link>
       );
     }
@@ -37,7 +39,7 @@ const Header = (props) => {
         {renderCompleteProf()}
         <Link to="/" className="item">
           Home
-        </Link> 
+        </Link>
         <Link to="/blogs" className="item">
           Find Your Jam
         </Link>

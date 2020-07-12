@@ -17,8 +17,8 @@ class NonProfitOrg extends React.Component {
           <h2 className="header">Add Organization details</h2>
           <UserForm
             onSubmit={this.onSubmit}
-            label="Enter Website link"
-            upi="Enter UPI ID"
+            label1="Enter Website link"
+            label2="Enter UPI ID"
           />
         </div>
       );

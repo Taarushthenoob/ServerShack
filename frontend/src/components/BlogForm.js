@@ -1,41 +1,47 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
 
-class BlogForm extends Component {
-  render() {
-    return (
-      <div style={{ marginTop: '2rem' }}>
-        <h2 className="header">Add a New Blog</h2>
-        <form className="ui form">
-          <div className="field">
-            <label>Blog Type</label>
-            <select className="ui fluid dropdown">
-              <option value="">Label</option>
-              <option value="Fitness">Fitness</option>
-              <option value="Mental Health">Mental Health</option>
-              <option value="Diet">Diet</option>
-              <option value="Non-Profit Incentive">Non-Profit Incentive</option>
-            </select>
-          </div>
-          <div className="field">
-            <label>Title</label>
-            <input
-              type="text"
-              name="title"
-              placeholder="Enter the Blog Title"
-            />
-          </div>
-          <div className="field">
-            <label>Blog Content</label>
-            <input type="text" name="body" placeholder="Enter Blog Content" />
-          </div>
-          <div className="field">
-            <label>Image Link</label>
-            <input type="file" />
-          </div>
-        </form>
+const BlogForm = (props) => {
+  console.log(props);
+
+  return (
+    <form className="ui form" onSubmit={props.onSubmit}>
+      <div className="required field">
+        <label>Label</label>
+        <div>
+          <Field name="label" component="select">
+            <option></option>
+            <option value="Fitness">Fitness</option>
+            <option value="Mental Health">Mental Health</option>
+            <option value="Diet">Diet</option>
+            <option value="Non-Profit Incentive"></option>
+          </Field>
+        </div>
       </div>
-    );
-  }
-}
+      <div className="required field">
+        <label>Title</label>
+        <Field
+          name="title"
+          component="input"
+          type="text"
+          placeholder="Enter Title of Blog"
+        />
+      </div>
+      <div className="field">
+        <label>Blog Content</label>
+        <Field
+          name="body"
+          component="textarea"
+          placeholder="Enter Blog content"
+        />
+      </div>
+      <div className="required field">
+        <label>Image/Video File</label>
+        <Field name="media" component="file" />
+      </div>
+      <button className="ui button primary" type="submit"></button>
+    </form>
+  );
+};
 
-export default BlogForm;
+export default reduxForm({ form: 'AddBlogForm' })(BlogForm);
