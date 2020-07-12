@@ -7,7 +7,7 @@ import Home from './Home';
 import Blogs from './Blogs';
 import NonProfitOrg from './NonProfitOrg';
 import BlogForm from './BlogForm';
-
+import Help from './Help';
 const App = () => {
   return (
     <div>
@@ -20,6 +20,7 @@ const App = () => {
               <Route exact path="/blogs" component={Blogs} />
               <Route exact path="/nonprofitorg/new" component={NonProfitOrg} />
               <Route exact path="/BlogForm" component={BlogForm} />
+              <Route exact path="/Help" component={Help} />
             </div>
           </Switch>
         </div>
