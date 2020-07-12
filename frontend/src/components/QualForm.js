@@ -14,7 +14,7 @@ class QualForm extends React.Component {
     if (this.props.isSignedIn) {
       return (
         <div style={{ marginTop: '2rem' }}>
-          <h2 className="header">Add Organization details</h2>
+          <h2 className="header">Add Qualification Details</h2>
           <UserForm
             onSubmit={this.onSubmit}
             label1="Enter Qualifications"
