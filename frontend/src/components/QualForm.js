@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import history from '../history';
-import { nonProfitOrg } from '../actions';
+import { sendQualDetails } from '../actions';
 import UserForm from './UserForm';
 
 class QualForm extends React.Component {
   onSubmit = (formValues) => {
-    this.props.nonProfitOrg(formValues);
+    this.props.sendQualDetails(formValues);
   };
 
   renderUserForm() {
@@ -36,4 +36,4 @@ const mapStateToProps = (state) => {
   return { isSignedIn: state.auth.isSignedIn };
 };
 
-export default connect(mapStateToProps, { nonProfitOrg })(QualForm);
+export default connect(mapStateToProps, { sendQualDetails })(QualForm);
