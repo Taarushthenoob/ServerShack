@@ -11,7 +11,7 @@ const Blogs = (props) => {
   const renderNewJamButton = () => {
     if (props.isSignedIn) {
       return (
-        <Link to="/BlogForm">
+        <Link to="/blog/new">
           <CreateBut />
         </Link>
       );

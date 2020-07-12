@@ -13,6 +13,7 @@ class UserForm extends React.Component {
   }
 
   renderInput = ({ input, label, meta }) => {
+    console.log(input);
     const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
 
     return (
@@ -49,11 +50,11 @@ class UserForm extends React.Component {
 const validate = (formValues) => {
   const errors = {};
   if (!formValues.website) {
-    errors.title = 'You must enter the website link';
+    errors.website = 'You must enter the website link';
   }
 
   if (!formValues.upi) {
-    errors.description = 'You must enter the UPI ID';
+    errors.upi = 'You must enter the UPI ID';
   }
 
   return errors;
