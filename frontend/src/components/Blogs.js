@@ -11,7 +11,8 @@ import FilterBut from './FilterBut';
 const Blogs = (props) => {
   useEffect(() => {
     props.getAllBlogs();
-  });
+  }, []);
+
   const renderButtons = () => {
     if (props.isSignedIn) {
       return (

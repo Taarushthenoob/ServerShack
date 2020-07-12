@@ -6,6 +6,7 @@ import {
   SEND_ORG_INFO,
   SEND_QUAL_INFO,
   GET_ALL_BLOGS,
+  GET_ALL_ORGS,
 } from './types';
 import history from '../history';
 
@@ -69,5 +70,13 @@ export const sendQualDetails = (formValues) => async (dispatch, getState) => {
 export const getAllBlogs = () => async (dispatch) => {
   const response = await url.get('/blog/blogsbydate');
 
-  dispatch({ type: GET_ALL_BLOGS, payload: response.data });
+  console.log(response.data);
+
+  dispatch({ type: GET_ALL_BLOGS, payload: response.data.blogs });
+};
+
+export const getAllOrgs = () => async (dispatch) => {
+  const response = await url.get('/user/allorgs');
+
+  dispatch({ type: GET_ALL_ORGS, payload: response.data });
 };
