@@ -7,18 +7,17 @@ const Home = () => {
   return (
     <div className="backgimg">
       <div className=" grad">
-        <div className="pad">
+        <div className="pad ">
           <Link to="/videoandimages" className="f2">
             For Your Jam
           </Link>
           <p className="f1">
-            This service provides fitness and meditation videos from many top
-            websites under our platform. You can find the videos you like to
-            follow and the websites that suit you the most in this section.
+            This service provides fitness and meditation videos under our platform in the form of Jams. Jams are basically blogs from a signed in user. We provide you with a platform where experienced individuals blog and you get to see their blogs aka Jams. You can find the Jams you like to
+            follow and the Blogger that suits you the most in your own personalised feed.
             Happy Excercising!!
           </p>
         </div>
-        <div className="pad">
+        <div className="pad ">
           <Link to="/blogs" className="f2">
             Your own personalized feed
           </Link>
@@ -31,7 +30,7 @@ const Home = () => {
             want to see. Enjoy!!
           </p>
         </div>
-        <div className="pad">
+        <div className="pad ">
           <Link to="/help" className="f2">
             Want Help Section
           </Link>

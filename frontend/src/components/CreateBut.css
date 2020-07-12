@@ -1,0 +1,10 @@
+#divfix {
+  top: 5rem;
+  right: 5rem;
+  position: fixed;
+  z-index: 3000;
+}
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 15px 10px 10px #888;
+}

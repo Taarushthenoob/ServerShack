@@ -6,6 +6,7 @@ import Header from './Header';
 import Home from './Home';
 import Blogs from './Blogs';
 import NonProfitOrg from './NonProfitOrg';
+import BlogForm from './BlogForm';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <div className="ui container">
               <Route exact path="/blogs" component={Blogs} />
               <Route exact path="/nonprofitorg/new" component={NonProfitOrg} />
+              <Route exact path="/BlogForm" component={BlogForm} />
             </div>
           </Switch>
         </div>
