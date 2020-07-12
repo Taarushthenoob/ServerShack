@@ -8,14 +8,11 @@ import './Blogs.css';
 import CreateBut from './CreateBut';
 import FilterBut from './FilterBut';
 
-
-
 const Blogs = (props) => {
   const renderButtons = () => {
     if (props.isSignedIn) {
       return (
-        
-        <Link to="/BlogForm">
+        <Link to="/blog/new">
           <CreateBut />
         </Link>
       );
