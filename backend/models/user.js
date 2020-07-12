@@ -30,10 +30,7 @@ const userSchema = new mongoose.Schema({
 	d: {
 		type: String
 	},
-	govtid: {
-		type: String
-	},
-	doc: {
+	govt_id: {
 		type: String
 	}
 });
