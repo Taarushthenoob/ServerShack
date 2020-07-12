@@ -40,8 +40,8 @@ router.post('/updateprofile', upload.none(), async (req,res,next) => {
 	try{
 		let updates = cut(req.body, ['qualifications','govt_id']);
 		let { _id } = req.body;
-		let { n, nModified } = await User.updateOne({ _id }, updates);
-		if(n !== 1 || nModified !== 1){
+		let { nModified } = await User.updateOne({ _id }, updates);
+		if(nModified !== 1){
 			let err = new Error('Failed to update details');
 			next(err);
 			return;
