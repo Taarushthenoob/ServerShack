@@ -4,10 +4,30 @@ import { Field, reduxForm, formValues } from 'redux-form';
 
 class BlogForm extends Component {
    
+    renderError({ error, touched }) {
+        if (touched && error) {
+          return (
+            <div className="ui error message">
+              <div className="header">{error}</div>
+            </div>
+          );
+        }
+      }
    
-   
-    const onSubmit = (formValues) => {
-        
+    renderInput = ({ input, label, meta }, type, classN) => {
+        const className = `field ${meta.error && meta.touched ? 'error' : `${classN}`}`;
+    
+        return (
+          <div className={className}>
+            <label>{label}</label>
+            <input {...input} type={type} autoComplete="off" />
+            {this.renderError(meta)}
+          </div>
+        );
+      };
+    
+    onSubmit = (formValues) => {
+        this.props.onSubmit(formValues);
     }
     
     render() {
@@ -17,11 +37,12 @@ class BlogForm extends Component {
               onSubmit={this.props.handleSubmit(this.onSubmit)}
             >
               <Field
-                name="website"
-                component={this.renderInput}
+                name="label"
+                component={this.renderInput(type= 'checkbox', classN= 'ui toggle checkbox' )}
                 label={this.props.label}
               />
-              <Field name="upi" component={this.renderInput} label={this.props.upi} />
+              <Field name="title" component={this.renderInput} label={this.props.title} />
+              
               <button className="ui button primary">Submit</button>
             </form>
           );
