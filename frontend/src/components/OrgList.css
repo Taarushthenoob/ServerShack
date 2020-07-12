@@ -1,24 +1,22 @@
 .scrollable {
-   
-    max-height: 50%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 2rem;
+  max-height: 50%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2rem;
 }
 div.hov {
-   
-    background-color: burlywood;
-    border: 1px solid black;
-    transition : 0.2s;
-    padding: 3rem;
-    margin: 2rem;
+  background-color: burlywood;
+  border: 1px solid black;
+  transition: 0.2s;
+  padding: 3rem;
+  margin: 2rem;
+  width: 70vw;
 }
 div.hov:hover {
-    transform: translateX(50px);
-    transform: scale(0.95);
-    box-shadow: -30px 2px coral;
-    
+  transform: translateX(50px);
+  transform: scale(0.95);
+  box-shadow: -30px 2px coral;
 }
 h2 {
-    text-decoration: underline;
+  text-decoration: underline;
 }
