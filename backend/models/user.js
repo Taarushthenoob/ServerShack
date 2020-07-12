@@ -29,6 +29,12 @@ const userSchema = new mongoose.Schema({
 	},
 	d: {
 		type: String
+	},
+	govtid: {
+		type: String
+	},
+	doc: {
+		type: String
 	}
 });
 
