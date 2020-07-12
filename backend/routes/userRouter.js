@@ -39,7 +39,6 @@ router.post('/addupiwebsite', upload.none(), async (req,res,next) => {
 router.post('/updateprofile', upload.none(), async (req,res,next) => {
 	try{
 		let updates = cut(req.body, ['qualifications','govt_id']);
-		updates.doc = req.file.path;
 		let { _id } = req.body;
 		let { n, nModified } = await User.updateOne({ _id }, updates);
 		if(n !== 1 || nModified !== 1){
