@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const blogSchema = new mongoose.Schema({
 	userid: {
-		type: String
+		type: String,
+		ref: 'User'
 	},
 	label: {
 		type: String,
@@ -18,6 +19,9 @@ const blogSchema = new mongoose.Schema({
 	},
 	video: {
 		type: String
+	},
+	date: {
+		type: Number
 	}
 });
 module.exports = mongoose.model('Blog', blogSchema);
