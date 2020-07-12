@@ -1,10 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
+import { nonProfitOrg } from '../actions';
 import UserForm from './UserForm';
 
 class NonProfitOrg extends React.Component {
   onSubmit = (formValues) => {
-    console.log(formValues);
+    this.props.nonProfitOrg(formValues);
   };
 
   render() {
@@ -21,4 +23,4 @@ class NonProfitOrg extends React.Component {
   }
 }
 
-export default NonProfitOrg;
+export default connect(null, { nonProfitOrg })(NonProfitOrg);
