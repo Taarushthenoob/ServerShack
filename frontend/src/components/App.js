@@ -1,24 +1,18 @@
 import React from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
-import Header from './Header';
+
 import history from '../history';
+import Header from './Header';
 import Home from './Home.js';
-import  './Home.css';
 
 const App = () => {
   return (
-    <div className="ui backgimg">
+    <div className="ui">
       <Router history={history}>
-        <div >
-          <div  className=" grad"><Header /></div>
-          <div className="nocol">
-            <br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br />
-            <br /><br /><br /><br /><br /><br /><br /><br />   
-          </div>
+        <div>
+          <Header />
           <Switch>
-            <Route exact path='/' component= {Home} />
+            <Route exact path="/" component={Home} />
           </Switch>
         </div>
       </Router>

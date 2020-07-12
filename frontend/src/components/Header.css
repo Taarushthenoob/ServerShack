@@ -1,0 +1,19 @@
+.ui.stackable.menu {
+  background-color: rgba(188, 39, 204, 0.7);
+  border-bottom: none;
+  border-radius: 0;
+  margin-bottom: 0;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+}
+
+a.item {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .right.menu {
+    width: 100vw;
+  }
+}
