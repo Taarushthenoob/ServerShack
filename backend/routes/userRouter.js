@@ -21,7 +21,7 @@ router.post('/addupiwebsite', upload.none(), async (req,res,next) => {
 		let { _id, fullname } = req.body;
 		updates.org = true;
 		if(updates.upi){
-			let d = await fetch(`https://upiqr.in/api/qr?name=${fullname}&vpa=${upi}`);
+			let d = await fetch(`https://upiqr.in/api/qr?name=${fullname}&vpa=${updates.upi}`);
 			d = await d.text();
 			d = d.split('d="')[1].split('"')[0];
 			updates.d = d;
