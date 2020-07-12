@@ -6,11 +6,15 @@ import AuthorInfo from './AuthorInfo';
 import Logo from '../assets/images/work.jpg';
 import './Blogs.css';
 import CreateBut from './CreateBut';
+import FilterBut from './FilterBut';
+
+
 
 const Blogs = (props) => {
-  const renderNewJamButton = () => {
+  const renderButtons = () => {
     if (props.isSignedIn) {
       return (
+        
         <Link to="/BlogForm">
           <CreateBut />
         </Link>
@@ -59,7 +63,8 @@ const Blogs = (props) => {
           facilisis enim, vel aliquam turpis scelerisque eget. Suspendisse
           lectus tortor, pharetra a tortor vitae, semper blandit sapien.
         </p>
-        {renderNewJamButton()}
+        {renderButtons()}
+        <FilterBut />
       </div>
     </div>
   );
