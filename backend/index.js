@@ -27,6 +27,10 @@ app.use((req, res, next) => {
 });
 
 app.use('/assets', express.static('./assets/'));
+app.use('/', express.static('./build/'));
+app.get('/', (req, res, next) => {
+	res.redirect('/index.html');
+})
 
 // Setting Content-Type
 app.use((req,res,next) => {
