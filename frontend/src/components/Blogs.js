@@ -1,12 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import AuthorInfo from './AuthorInfo';
 import Logo from '../assets/images/work.jpg';
-import { Link } from 'react-router-dom';
 import './Blogs.css';
 import CreateBut from './CreateBut';
 
-const VideoAndImages = () => {
+const Blogs = (props) => {
+  const renderNewJamButton = () => {
+    if (props.isSignedIn) {
+      return (
+        <Link to="/BlogForm">
+          <CreateBut />
+        </Link>
+      );
+    }
+  };
   return (
     <div className="ui attached message">
       <div className="content">
@@ -23,6 +33,7 @@ const VideoAndImages = () => {
 
       <div className="content">
         <img src={Logo} alt="logo" className="ui image" />
+        <video width="0" height="0"></video>
         <h3>Description</h3>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed
@@ -48,10 +59,14 @@ const VideoAndImages = () => {
           facilisis enim, vel aliquam turpis scelerisque eget. Suspendisse
           lectus tortor, pharetra a tortor vitae, semper blandit sapien.
         </p>
+        {renderNewJamButton()}
       </div>
-      <Link to='/BlogForm'><CreateBut /></Link>
     </div>
   );
 };
 
-export default VideoAndImages;
+const mapStateToProps = (state) => {
+  return { isSignedIn: state.auth.isSignedIn };
+};
+
+export default connect(mapStateToProps)(Blogs);
