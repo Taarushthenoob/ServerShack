@@ -5,6 +5,7 @@ import history from '../history';
 import Header from './Header';
 import Home from './Home';
 import VideoAndImages from './VideoAndImages';
+import NonProfitOrg from './NonProfitOrg';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
             <Route exact path="/" component={Home} />
             <div className="ui container">
               <Route exact path="/videoandimages" component={VideoAndImages} />
+              <Route exact path="/nonprofitorg/new" component={NonProfitOrg} />
             </div>
           </Switch>
         </div>

@@ -1,10 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import GoogleAuth from './GoogleAuth';
 import './Header.css';
 
-const Header = () => {
+const Header = (props) => {
+  const renderNonProfitOrg = () => {
+    if (props.isSignedIn) {
+      return (
+        <Link to="/nonprofitorg/new" className="item">
+          <button className="ui button green">Non-Profit Organization</button>
+        </Link>
+      );
+    }
+  };
+
   return (
     <div className="ui stackable menu">
       <Link to="/" className="item">
@@ -26,9 +37,14 @@ const Header = () => {
         <Link className="item">
           <GoogleAuth />
         </Link>
+        {renderNonProfitOrg()}
       </div>
     </div>
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return { isSignedIn: state.auth.isSignedIn };
+};
+
+export default connect(mapStateToProps)(Header);
