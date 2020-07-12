@@ -4,6 +4,7 @@ const multer = require('multer');
 const upload = multer();
 const User = require('../models/user');
 const cut = require('../utilities/cut');
+const fetch = require('node-fetch');
 
 router.post('/create', upload.none(), async (req,res,next) => {
 	try{
