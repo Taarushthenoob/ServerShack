@@ -28,6 +28,10 @@ const Blogs = (props) => {
         return null;
       }
 
+      if (!blog.userId) {
+        return null;
+      }
+
       return (
         <div className="ui attached message" key={blog._id}>
           <div className="content">

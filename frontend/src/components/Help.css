@@ -1,23 +1,5 @@
 .cont {
-<<<<<<< HEAD
-    display: flex;
-    flex-direction: column;
-    
-    max-height: 50%;
-    
-    padding: 2rem;
-    background-color: burlywood;
-    margin: 2rem;
-    border: 2px solid black;
-    transition: 0.3s;
-}
-.cont:hover {
-    transform: scale(1.02);
-    box-shadow: -10px 10px rgba(180,180,180,0.6);
-}
-=======
   width: max-content;
   height: 50%;
   overflow-y: scroll;
 }
->>>>>>> 925647f125f3fc3509885c15bfd9a81591d209ed
