@@ -2,7 +2,9 @@ import React from 'react';
 
 import AuthorInfo from './AuthorInfo';
 import Logo from '../assets/images/work.jpg';
+import { Link } from 'react-router-dom';
 import './Blogs.css';
+import CreateBut from './CreateBut';
 
 const VideoAndImages = () => {
   return (
@@ -47,6 +49,7 @@ const VideoAndImages = () => {
           lectus tortor, pharetra a tortor vitae, semper blandit sapien.
         </p>
       </div>
+      <Link to='/BlogForm'><CreateBut /></Link>
     </div>
   );
 };
