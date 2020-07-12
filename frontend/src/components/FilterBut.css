@@ -1,5 +1,4 @@
 #divfix1 {
-<<<<<<< HEAD
     top: 10rem;
     right: 3rem;
     position: fixed;
@@ -9,14 +8,3 @@
     transform: scale(1.1);
     box-shadow: 15px 10px 10px #888;
   }
-=======
-  top: 10rem;
-  right: 5rem;
-  position: fixed;
-  z-index: 3000;
-}
-button:hover {
-  transform: scale(1.1);
-  box-shadow: 15px 10px 10px #888;
-}
->>>>>>> 925647f125f3fc3509885c15bfd9a81591d209ed
