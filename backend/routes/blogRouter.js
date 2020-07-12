@@ -15,7 +15,7 @@ function mediaHandle(req,res,next) {
 router.post('/addblog', mediaHandle, async (req,res,next) => {
 	try{
 		let input = cut(req.body, ['userid','label','title','body']);
-		if(req.file) input.image = req.file.path;
+		if(req.file) input.media = req.file.path;
 		input.date = Date.now();
 		let newBlog = new Blog(input);
 		await newBlog.save();

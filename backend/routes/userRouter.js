@@ -36,9 +36,10 @@ router.post('/addupiwebsite', upload.none(), async (req,res,next) => {
 	} catch(err){ next(err); }
 });
 
-router.post('/addqual', upload.none(), async (req,res,next) => {
+router.post('/updateprofile', upload.single('doc'), async (req,res,next) => {
 	try{
 		let updates = cut(req.body, ['qualifications']);
+		updates.doc = req.file.path;
 		let { _id } = req.body;
 		let { n, nModified } = await User.updateOne({ _id }, updates);
 		if(n !== 1 || nModified !== 1){
@@ -47,6 +48,14 @@ router.post('/addqual', upload.none(), async (req,res,next) => {
 			return;
 		}
 		res.status(200).json({ ok:1 });
+	} catch(err){ next(err); }
+});
+
+
+router.get('/allorgs', async (req,res,next) => {
+	try{
+		let data = await User.find({ org: true });
+		res.status(200).json({ ok:1, data });
 	} catch(err){ next(err); }
 });
 
