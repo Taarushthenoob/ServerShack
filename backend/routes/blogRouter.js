@@ -42,7 +42,8 @@ router.post('/blogsbylabels', upload.none(), async (req,res,next) => {
 
 router.get('/blogsbydate', async (req,res,next) => {
 	try{
-		let blogs = await Blog.find({},null,)
+		let blogs = await Blog.find({},null,{ sort: { date: -1 }, limit: 20 });
+		res.status(200).json({ ok:1, blogs });
 	} catch(err){ next(err); }
 });
 

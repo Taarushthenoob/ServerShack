@@ -25,6 +25,8 @@ app.use((req, res, next) => {
 	next();
 });
 
+app.use('/assets', express.static('./assets/'));
+
 // Setting Content-Type
 app.use((req,res,next) => {
 	res.set('Content-Type', 'application/json');
