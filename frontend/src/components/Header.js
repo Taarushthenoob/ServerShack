@@ -31,9 +31,9 @@ const Header = (props) => {
         <Link to="/help" className="item">
           Want Help
         </Link>
-        <Link className="item">
+        <span className="item">
           <GoogleAuth />
-        </Link>
+        </span>
         {renderNonProfitOrg()}
       </div>
     </div>

@@ -32,5 +32,8 @@ export const sendUserInfo = () => async (dispatch, getState) => {
 export const nonProfitOrg = (formValues) => async (dispatch, getState) => {
   const { fullname } = getState().auth;
 
-  const response = await url.post('/user/addupiwebsite');
+  console.log(formValues);
+  console.log(fullname);
+
+  // const response = await url.post('/user/addupiwebsite');
 };
