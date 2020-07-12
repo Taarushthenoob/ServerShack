@@ -7,7 +7,7 @@
 }
 div.hov {
    
-    
+    background-color: burlywood;
     border: 1px solid black;
     transition : 0.2s;
     padding: 3rem;
@@ -18,4 +18,7 @@ div.hov:hover {
     transform: scale(0.95);
     box-shadow: -30px 2px coral;
     
+}
+h2 {
+    text-decoration: underline;
 }
