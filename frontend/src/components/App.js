@@ -3,16 +3,20 @@ import { Router, Switch, Route } from 'react-router-dom';
 
 import history from '../history';
 import Header from './Header';
-import Home from './Home.js';
+import Home from './Home';
+import VideoAndImages from './VideoAndImages';
 
 const App = () => {
   return (
-    <div className="ui">
+    <div>
       <Router history={history}>
+        <Header />
         <div>
-          <Header />
           <Switch>
             <Route exact path="/" component={Home} />
+            <div className="ui container">
+              <Route exact path="/videoandimages" component={VideoAndImages} />
+            </div>
           </Switch>
         </div>
       </Router>

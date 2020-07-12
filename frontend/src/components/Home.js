@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import Workout from '../assets/images/work.jpg';
 
 import './Home.css';
 
