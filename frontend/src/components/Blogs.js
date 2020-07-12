@@ -29,7 +29,7 @@ class Blogs extends React.Component {
         return null;
       }
 
-      const src = `http://localhost:4000/${blog.media}`;
+      const src = `https://healthify-theworld.herokuapp.com/${blog.media}`;
 
       return (
         <div className="ui attached message" key={blog._id}>

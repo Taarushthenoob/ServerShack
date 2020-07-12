@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import GoogleAuth from './GoogleAuth';
 import './Header.css';
+import Logo from '../assets/images/logo.png';
 
 const Header = (props) => {
   const renderNonProfitOrg = () => {
@@ -33,6 +34,7 @@ const Header = (props) => {
   return (
     <div className="ui stackable menu">
       <Link to="/" className="item">
+        <img src={Logo} alt="logo" style={{ width: 30, height: 30 }} />
         <h2>Healthify</h2>
       </Link>
       <div className="right menu">

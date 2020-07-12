@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: 'http://localhost:4000',
+  baseURL: 'https://healthify-theworld.herokuapp.com',
   headers: { 'content-type': 'multipart/form-data' },
 });
