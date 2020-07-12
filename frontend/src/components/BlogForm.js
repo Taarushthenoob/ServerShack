@@ -3,14 +3,13 @@ import { Field, reduxForm, formValueSelector } from 'redux-form';
 
 const BlogForm = (props) => {
   console.log(props);
-  const { labelValue, title, body, media, onSubmit } = props;
 
   return (
-    <form className="ui form" onSubmit={onSubmit}>
+    <form className="ui form" onSubmit={props.onSubmit}>
       <div className="required field">
         <label>Label</label>
         <div>
-          <Field name="label" component={select}>
+          <Field name="label" component="select">
             <option></option>
             <option value="Fitness">Fitness</option>
             <option value="Mental Health">Mental Health</option>
@@ -23,7 +22,7 @@ const BlogForm = (props) => {
         <label>Title</label>
         <Field
           name="title"
-          component={input}
+          component="input"
           type="text"
           placeholder="Enter Title of Blog"
         />
@@ -32,13 +31,15 @@ const BlogForm = (props) => {
         <label>Blog Content</label>
         <Field
           name="body"
-          component={textarea}
+          component="textarea"
           placeholder="Enter Blog content"
         />
       </div>
       <div className="required field">
         <label>Image/Video File</label>
+        <Field name="media" component="file" />
       </div>
+      <button className="ui button primary" type="submit"></button>
     </form>
   );
 };

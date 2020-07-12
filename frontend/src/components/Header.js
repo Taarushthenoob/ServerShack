@@ -10,7 +10,21 @@ const Header = (props) => {
     if (props.isSignedIn) {
       return (
         <Link to="/nonprofitorg/new" className="item">
-          <button className="ui button green">Non-Profit Organization</button>
+          <button className="ui button green">
+            Non-Profit Org? Update Profile!
+          </button>
+        </Link>
+      );
+    }
+  };
+
+  const renderCompleteProf = () => {
+    if (props.isSignedIn) {
+      return (
+        <Link to="/QualForm" className="item">
+          <button className="medium ui purple button">
+            Complete Your Profile!
+          </button>
         </Link>
       );
     }
@@ -22,6 +36,7 @@ const Header = (props) => {
         <h2>Healthify</h2>
       </Link>
       <div className="right menu">
+        {renderCompleteProf()}
         <Link to="/" className="item">
           Home
         </Link>
@@ -29,7 +44,7 @@ const Header = (props) => {
           Find Your Jam
         </Link>
         <Link to="/help" className="item">
-          Want Help
+          Help
         </Link>
         <span className="item">
           <GoogleAuth />

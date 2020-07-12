@@ -13,7 +13,6 @@ class UserForm extends React.Component {
   }
 
   renderInput = ({ input, label, meta }) => {
-    console.log(input);
     const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
 
     return (
@@ -36,11 +35,11 @@ class UserForm extends React.Component {
         onSubmit={this.props.handleSubmit(this.onSubmit)}
       >
         <Field
-          name="website"
+          name="label1"
           component={this.renderInput}
-          label={this.props.label}
+          label={this.props.label1}
         />
-        <Field name="upi" component={this.renderInput} label={this.props.upi} />
+        <Field name="label2" component={this.renderInput} label={this.props.label2} />
         <button className="ui button primary">Submit</button>
       </form>
     );
@@ -49,18 +48,18 @@ class UserForm extends React.Component {
 
 const validate = (formValues) => {
   const errors = {};
-  if (!formValues.website) {
-    errors.website = 'You must enter the website link';
+  if (!formValues.label1) {
+    errors.label1 = 'You must enter the website link';
   }
 
-  if (!formValues.upi) {
-    errors.upi = 'You must enter the UPI ID';
+  if (!formValues.label2) {
+    errors.label2 = 'You must enter the UPI ID';
   }
 
   return errors;
 };
 
 export default reduxForm({
-  form: 'nonProfitOrgForm',
+  form: 'UserForm',
   validate,
 })(UserForm);

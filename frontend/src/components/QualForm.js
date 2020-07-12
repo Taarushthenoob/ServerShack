@@ -5,7 +5,7 @@ import history from '../history';
 import { nonProfitOrg } from '../actions';
 import UserForm from './UserForm';
 
-class NonProfitOrg extends React.Component {
+class QualForm extends React.Component {
   onSubmit = (formValues) => {
     this.props.nonProfitOrg(formValues);
   };
@@ -17,8 +17,8 @@ class NonProfitOrg extends React.Component {
           <h2 className="header">Add Organization details</h2>
           <UserForm
             onSubmit={this.onSubmit}
-            label1="Enter Website link"
-            label2="Enter UPI ID"
+            label1="Enter Qualifications"
+            label2="Enter Government issued ID"
           />
         </div>
       );
@@ -36,4 +36,4 @@ const mapStateToProps = (state) => {
   return { isSignedIn: state.auth.isSignedIn };
 };
 
-export default connect(mapStateToProps, { nonProfitOrg })(NonProfitOrg);
+export default connect(mapStateToProps, { nonProfitOrg })(QualForm);
