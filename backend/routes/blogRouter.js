@@ -5,11 +5,17 @@ const upload = multer({ dest:'../assets/' });
 const cut = require('../utilities/cut');
 const Blog = require('../models/blog');
 
+function mediaHandle(req,res,next) {
+	try{
+		upload.single('media');
+	} catch(err){ next(); }
+}
 
-router.post('/addblogimg', upload.single('image'), async (req,res,next) => {
+
+router.post('/addblog', mediaHandle, async (req,res,next) => {
 	try{
 		let input = cut(req.body, ['userid','label','title','body']);
-		input.image = req.file.path;
+		if(req.file) input.image = req.file.path;
 		input.date = Date.now();
 		let newBlog = new Blog(input);
 		await newBlog.save();
@@ -18,16 +24,16 @@ router.post('/addblogimg', upload.single('image'), async (req,res,next) => {
 });
 
 
-router.post('/addblogvid', upload.single('video'), async (req,res,next) => {
-	try{
-		let input = cut(req.body, ['userid','label','title']);
-		input.video = req.file.path;
-		input.date = Date.now();
-		let newBlog = new Blog(input);
-		await newBlog.save();
-		res.status(200).json({});
-	} catch(err){ next(err); }
-});
+// router.post('/addblogvid', upload.single('video'), async (req,res,next) => {
+// 	try{
+// 		let input = cut(req.body, ['userid','label','title']);
+// 		input.video = req.file.path;
+// 		input.date = Date.now();
+// 		let newBlog = new Blog(input);
+// 		await newBlog.save();
+// 		res.status(200).json({});
+// 	} catch(err){ next(err); }
+// });
 
 
 router.post('/blogsbylabels', upload.none(), async (req,res,next) => {
@@ -46,7 +52,6 @@ router.get('/blogsbydate', async (req,res,next) => {
 		res.status(200).json({ ok:1, blogs });
 	} catch(err){ next(err); }
 });
-
 
 
 module.exports = router;

@@ -26,6 +26,9 @@ const userSchema = new mongoose.Schema({
 	},
 	website: {
 		type: String
+	},
+	d: {
+		type: String
 	}
 });
 
